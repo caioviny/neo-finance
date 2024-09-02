@@ -1,0 +1,159 @@
+/* Estilos do popup principal */
+.popup {
+    display: none; /* Esconde o popup inicialmente */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Aumenta a largura do popup */
+    max-width: 900px; /* Define um tamanho máximo para a largura */
+    height: 70%; /* Aumenta a altura do popup */
+    max-height: 700px; /* Define um tamanho máximo para a altura */
+    background-color: #002D14; /* Verde escuro elegante */
+    padding: 40px; /* Aumenta o padding para mais espaçamento interno */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra mais suave */
+    border-radius: 20px; /* Bordas mais arredondadas */
+    z-index: 1000;
+    overflow-y: auto; /* Adiciona rolagem se o conteúdo exceder a altura */
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Garante que o conteúdo ocupe toda a altura do popup */
+    justify-content: space-between; /* Espaça o conteúdo uniformemente na vertical */
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+    font-size: 36px; /* Aumenta o tamanho da fonte do título */
+    text-align: center;
+    color: #00FF85; /* Cor verde brilhante para destaque */
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between; /* Espaça os itens na linha */
+    margin-bottom: 15px; /* Espaçamento entre grupos */
+}
+
+.form-item {
+    flex: 1;
+    margin-right: 20px; /* Espaçamento entre os itens do grupo */
+}
+
+.form-item:last-child {
+    margin-right: 0; /* Remove o espaçamento do último item */
+}
+
+.popup-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #A3D7C3; /* Cor clara para os labels */
+}
+
+.popup-content input, .popup-content select {
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 10px; /* Reduz o padding dos inputs */
+    font-size: 16px; /* Reduz o tamanho da fonte dos inputs */
+    border: none; /* Remove bordas padrão */
+    background-color: #00422A; /* Verde escuro para inputs */
+    color: #FFFFFF; /* Texto branco */
+    border-radius: 5px; /* Bordas arredondadas mais sutis */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Efeito de profundidade */
+}
+
+.popup-content input::placeholder, .popup-content select::placeholder {
+    color: #A3D7C3; /* Cor clara para o placeholder */
+}
+
+.popup-content button {
+    padding: 15px; /* Aumenta o padding do botão */
+    font-size: 20px; /* Aumenta o tamanho da fonte do botão */
+    background-color: #00FF85; /* Verde brilhante para botão */
+    color: #003115; /* Texto escuro no botão para contraste */
+    border: none;
+    border-radius: 8px; /* Bordas mais arredondadas */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
+}
+
+.popup-content button:hover {
+    background-color: #00D174; /* Escurece um pouco ao passar o mouse */
+    transform: scale(1.05); /* Pequeno efeito de zoom */
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #00FF85; /* Cor verde brilhante */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #00D174; /* Escurece um pouco ao passar o mouse */
+}
+
+/* Estilos para o botão de escolha de ícones */
+#iconeBtn {
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 10px;
+    font-size: 16px;
+    background-color: #005D33; /* Verde escuro para o botão */
+    color: #FFFFFF; /* Texto branco */
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#iconeBtn:hover {
+    background-color: #004d26; /* Escurece ao passar o mouse */
+    transform: scale(1.05); /* Pequeno efeito de zoom */
+}
+
+/* Estilos para o grupo de entrada */
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+#categoria {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    background-color: #00422A;
+}
+
+#addCategoryBtn {
+    padding: 10px;
+    font-size: 20px;
+    background-color: #4CAF50; /* Verde */
+    color: #FFFFFF; /* Texto branco */
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#addCategoryBtn:hover {
+    background-color: #45a049; /* Verde mais escuro */
+    transform: scale(1.05); /* Pequeno efeito de zoom */
+}
+
+/* Estilos para o select */
+#categoriaSelect {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #00422A;
+    color: white
+}

@@ -1,0 +1,75 @@
+/* Estilos do popup de ícones */
+.icon-popup {
+    display: none; /* Esconde o popup de ícones inicialmente */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%; /* Ajusta a largura do popup de ícones */
+    max-width: 600px; /* Define um tamanho máximo para a largura */
+    height: 60%; /* Ajusta a altura do popup de ícones */
+    max-height: 500px; /* Define um tamanho máximo para a altura */
+    background-color: #003115; /* Cor escura para o popup */
+    padding: 20px; /* Padding interno */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 20px; /* Bordas arredondadas */
+    z-index: 1001; /* Garante que fique acima do popup principal */
+    overflow-y: auto; /* Adiciona rolagem se necessário */
+}
+
+.icon-popup-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.icon-popup-content h3 {
+    margin-bottom: 15px;
+    font-size: 24px; /* Ajusta o tamanho da fonte do título */
+    color: #00FF85; /* Cor verde brilhante para destaque */
+    text-align: center;
+}
+
+.icon-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #00FF85; /* Cor verde brilhante */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.icon-close-btn:hover {
+    color: #00D174; /* Escurece ao passar o mouse */
+}
+
+/* Estilos da grade de ícones */
+.icon-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os ícones se movam para a linha seguinte */
+    gap: 10px; /* Espaçamento entre os ícones */
+    justify-content: center; /* Centraliza a grade de ícones */
+}
+
+.icon {
+    width: 50px; /* Ajusta o tamanho dos ícones */
+    height: 50px;
+    background-color: #005D33; /* Cor de fundo dos ícones */
+    border-radius: 50%; /* Forma circular para os ícones */
+    display: flex; /* Usado para centralizar o ícone dentro do círculo */
+    align-items: center; /* Centraliza verticalmente o ícone */
+    justify-content: center; /* Centraliza horizontalmente o ícone */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.icon i { /* Ajusta o estilo do ícone dentro do círculo */
+    color: #00D174; /* Cor do ícone */
+    font-size: 24px; /* Tamanho do ícone */
+}
+
+.icon:hover {
+    background-color: #004d26; /* Escurece ao passar o mouse */
+    transform: scale(1.1); /* Pequeno efeito de zoom */
+}
