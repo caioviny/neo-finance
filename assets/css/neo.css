@@ -1,0 +1,506 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7d4;
+}
+
+.container {
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #d4f4e4;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.notification {
+    cursor: pointer;
+    font-size: 30px; /* Aumenta o tamanho do ícone */
+    transition: transform 0.3s ease, color 0.3s ease; /* Suaviza a transição da animação */
+    color: #333; /* Cor inicial do ícone */
+    margin-right: 4px;
+}
+
+.notification:hover {
+    transform: scale(1.3); /* Aumenta o ícone em 30% ao passar o mouse */
+    color: #2ecc71; /* Muda a cor para verde ao passar o mouse */
+}
+
+/* Adiciona um efeito de sombra verde */
+.notification:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Torna a sombra circular */
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.7); /* Sombra verde */
+    z-index: -1; /* Coloca a sombra atrás do ícone */
+    animation: pulse 1s infinite; /* Animação pulsante */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.balance-card, .assistant-card, .transactions-card, .history-card, .bill-card, .reminder-card {
+    background-color: #a9e4b3;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.balance-value {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 3px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.balance-card{
+    color: #002D14;
+}
+
+.resultValue{
+    position: relative;
+    top: 50%;
+    transform: translateY(-120%);
+}
+
+.balance-details {
+    display: flex;
+    align-items: center;
+}
+
+.income-expenses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-20%);
+    margin-left: 30px;
+}
+
+.income, .expenses {
+    display: flex;
+    align-items: center;
+    background-color: #a9e4b3;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    right: 45%;
+}
+
+.expenses{
+    margin-left: -12px;
+}
+
+.income img, .expenses img {
+    margin-right: 10px;
+}
+
+.income-text, .expenses-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.income h3, .expenses h3 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.income h1, .expenses h1 {
+    margin: 0;
+    font-weight: 900;
+    font-size: 24px;
+}
+
+.expenses-text h1 {
+    color: red;
+}
+
+.income-text h1{
+    color: #003d29;
+}
+
+.btnadicionar{
+    margin-left: 30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-20%);
+}
+
+.btnadicionar button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/*Animação btn*/
+/* Estilos do botão */
+.btnadicionar button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btnadicionar button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btnadicionar img {
+    display: block;
+    transition: filter 0.3s ease;
+}
+
+.btnadicionar button:hover img {
+    filter: brightness(1.2);
+}
+/* Estilos do popup principal */
+.popup {
+    display: none; /* Esconde o popup inicialmente */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Aumenta a largura do popup */
+    max-width: 900px; /* Define um tamanho máximo para a largura */
+    height: 70%; /* Aumenta a altura do popup */
+    max-height: 700px; /* Define um tamanho máximo para a altura */
+    background-color: #002D14; /* Verde escuro elegante */
+    padding: 40px; /* Aumenta o padding para mais espaçamento interno */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra mais suave */
+    border-radius: 20px; /* Bordas mais arredondadas */
+    z-index: 1000;
+    overflow-y: auto; /* Adiciona rolagem se o conteúdo exceder a altura */
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Garante que o conteúdo ocupe toda a altura do popup */
+    justify-content: space-between; /* Espaça o conteúdo uniformemente na vertical */
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+    font-size: 36px; /* Aumenta o tamanho da fonte do título */
+    text-align: center;
+    color: #00FF85; /* Cor verde brilhante para destaque */
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between; /* Espaça os itens na linha */
+    margin-bottom: 15px; /* Espaçamento entre grupos */
+}
+
+.form-item {
+    flex: 1;
+    margin-right: 20px; /* Espaçamento entre os itens do grupo */
+}
+
+.form-item:last-child {
+    margin-right: 0; /* Remove o espaçamento do último item */
+}
+
+.popup-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #A3D7C3; /* Cor clara para os labels */
+}
+
+.popup-content input, .popup-content select {
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 10px; /* Reduz o padding dos inputs */
+    font-size: 16px; /* Reduz o tamanho da fonte dos inputs */
+    border: none; /* Remove bordas padrão */
+    background-color: #00422A; /* Verde escuro para inputs */
+    color: #FFFFFF; /* Texto branco */
+    border-radius: 5px; /* Bordas arredondadas mais sutis */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Efeito de profundidade */
+}
+
+.popup-content input::placeholder, .popup-content select::placeholder {
+    color: #A3D7C3; /* Cor clara para o placeholder */
+}
+
+.popup-content button {
+    padding: 15px; /* Aumenta o padding do botão */
+    font-size: 20px; /* Aumenta o tamanho da fonte do botão */
+    background-color: #00FF85; /* Verde brilhante para botão */
+    color: #003115; /* Texto escuro no botão para contraste */
+    border: none;
+    border-radius: 8px; /* Bordas mais arredondadas */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
+}
+
+.popup-content button:hover {
+    background-color: #00D174; /* Escurece um pouco ao passar o mouse */
+    transform: scale(1.05); /* Pequeno efeito de zoom */
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #00FF85; /* Cor verde brilhante */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #00D174; /* Escurece um pouco ao passar o mouse */
+}
+
+/* Estilos para o botão de escolha de ícones */
+#iconeBtn {
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 10px;
+    font-size: 16px;
+    background-color: #005D33; /* Verde escuro para o botão */
+    color: #FFFFFF; /* Texto branco */
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#iconeBtn:hover {
+    background-color: #004d26; /* Escurece ao passar o mouse */
+    transform: scale(1.05); /* Pequeno efeito de zoom */
+}
+
+/* Estilos do popup de ícones */
+.icon-popup {
+    display: none; /* Esconde o popup de ícones inicialmente */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%; /* Ajusta a largura do popup de ícones */
+    max-width: 600px; /* Define um tamanho máximo para a largura */
+    height: 60%; /* Ajusta a altura do popup de ícones */
+    max-height: 500px; /* Define um tamanho máximo para a altura */
+    background-color: #003115; /* Cor escura para o popup */
+    padding: 20px; /* Padding interno */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 20px; /* Bordas arredondadas */
+    z-index: 1001; /* Garante que fique acima do popup principal */
+    overflow-y: auto; /* Adiciona rolagem se necessário */
+}
+
+.icon-popup-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.icon-popup-content h3 {
+    margin-bottom: 15px;
+    font-size: 24px; /* Ajusta o tamanho da fonte do título */
+    color: #00FF85; /* Cor verde brilhante para destaque */
+    text-align: center;
+}
+
+.icon-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #00FF85; /* Cor verde brilhante */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.icon-close-btn:hover {
+    color: #00D174; /* Escurece ao passar o mouse */
+}
+
+/* Estilos da grade de ícones */
+.icon-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os ícones se movam para a linha seguinte */
+    gap: 10px; /* Espaçamento entre os ícones */
+    justify-content: center; /* Centraliza a grade de ícones */
+}
+
+.icon {
+    width: 50px; /* Ajusta o tamanho dos ícones */
+    height: 50px;
+    background-color: #005D33; /* Cor de fundo dos ícones */
+    border-radius: 50%; /* Forma circular para os ícones */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.icon:hover {
+    background-color: #004d26; /* Escurece ao passar o mouse */
+    transform: scale(1.1); /* Pequeno efeito de zoom */
+}
+
+.divisao{
+    position: relative;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-20%);
+}
+
+/* Estilos para o grupo de entrada */
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+#categoria {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    background-color: #00422A;
+}
+
+#addCategoryBtn {
+    padding: 10px;
+    font-size: 20px;
+    background-color: #4CAF50; /* Verde */
+    color: #FFFFFF; /* Texto branco */
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#addCategoryBtn:hover {
+    background-color: #45a049; /* Verde mais escuro */
+    transform: scale(1.05); /* Pequeno efeito de zoom */
+}
+
+/* Estilos para o select */
+#categoriaSelect {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #00422A;
+    color: white
+}
+
+/*btns test*/
+/* From Uiverse.io by abrahamcalsin */ 
+.btnMeta button {
+    margin-top: 10px;
+    margin: 10px;
+    position: relative;
+    right: 70%;
+    transform: translateY(-20%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #002D14;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .btnMeta button:after {
+    content: " ";
+    width: 0%;
+    height: 100%;
+    background: #005D33;
+    position: absolute;
+    transition: all 0.4s ease-in-out;
+    right: 0;
+  }
+  
+  .btnMeta button:hover::after {
+    right: auto;
+    left: 0;
+    width: 100%;
+  }
+  
+  .btnMeta button span {
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 18px 25px;
+    color: #fff;
+    font-size: 1.125em;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    z-index: 20;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btnMeta button:hover span {
+    color: #4CAF50;
+    animation: scaleUp 0.3s ease-in-out;
+  }
+  
+  @keyframes scaleUp {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(0.95);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /*Card assistent IA*/
+  .assistantText h1{
+    color: #002D14;
+  }
+
+  .assistant-card img{
+   margin-left: 50px;
+  }
